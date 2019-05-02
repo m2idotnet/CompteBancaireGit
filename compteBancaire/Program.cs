@@ -1,5 +1,7 @@
 ﻿using compteBancaire.Classes;
+using Newtonsoft.Json;
 using System;
+using System.IO;
 using System.Text;
 
 namespace compteBancaire
@@ -61,6 +63,12 @@ namespace compteBancaire
             Console.Write("Tél du client : ");
             string tel = Console.ReadLine();
             Client c = new Client() { Nom = nom, Prenom = prenom, Tel = tel };
+
+            StreamWriter writer = new StreamWriter(@"C:\Users\Administrateur\Desktop\personne.txt");
+            string persoEnJson = JsonConvert.SerializeObject(c);
+            writer.WriteLine(persoEnJson);
+            writer.Close();
+
             Compte compte = new Compte() { Client = c };
             Journalisation.AjouterCompteBancaire(compte);
             Console.WriteLine("Compte crée");
