@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace compteBancaire.Classes
@@ -21,7 +23,9 @@ namespace compteBancaire.Classes
         {
             Numero = Guid.NewGuid().ToString();
             Operations = new List<Operation>();
+           
             Client = new Client();
+            
             Solde = 0;
         }
 

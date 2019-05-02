@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace compteBancaire.Classes
@@ -10,6 +12,11 @@ namespace compteBancaire.Classes
         public static void AjouterCompteBancaire(Compte c)
         {
             Comptes.Add(c);
+            //serialize
+            StreamWriter writer = new StreamWriter(@"C:\Users\Administrateur\Desktop\compte" + c.Numero + ".json");
+            string compteenJson = JsonConvert.SerializeObject(c);
+            writer.WriteLine(compteenJson);
+            writer.Close();
         }
 
         public static Compte GetCompteBancaire(string numero)
