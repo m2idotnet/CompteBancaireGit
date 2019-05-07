@@ -143,6 +143,7 @@ namespace CompteBancaireAdo
             Compte compte = new Compte(numero);
             if (compte.Id > 0)
             {
+
                 Client c = new Client(compte.ClientId);
                 Console.WriteLine(c);
                 foreach (Operation o in Operation.GetOperations(compte.Id))
