@@ -96,7 +96,6 @@ namespace compteBancaire
                 {
                     Console.WriteLine("Dépot effecuté ");
                     Console.WriteLine("Nouveau solde : " + compte.Solde + " €");
-                    Journalisation.UpdateCompte();
                 }
                 else
                 {
@@ -125,7 +124,6 @@ namespace compteBancaire
                 {
                     Console.WriteLine("Retrait effecuté ");
                     Console.WriteLine("Nouveau solde : " + compte.Solde + " €");
-                    Journalisation.UpdateCompte();
                 }
                 else
                 {
