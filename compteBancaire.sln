@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27428.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "compteBancaire", "compteBancaire\compteBancaire.csproj", "{95B2205E-0989-4B2E-9548-FDFD895F56F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompteBancaireAdo", "CompteBancaireAdo\CompteBancaireAdo.csproj", "{2CCCC2D2-DB37-4763-9960-9EBA5A1F08C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompteBancaireAdo", "CompteBancaireAdo\CompteBancaireAdo.csproj", "{2CCCC2D2-DB37-4763-9960-9EBA5A1F08C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompteBancaireAdoNetDeconnecte", "CompteBancaireAdoNetDeconnecte\CompteBancaireAdoNetDeconnecte.csproj", "{FD97AA8F-375E-46AD-8D15-12242C9C14B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2CCCC2D2-DB37-4763-9960-9EBA5A1F08C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CCCC2D2-DB37-4763-9960-9EBA5A1F08C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CCCC2D2-DB37-4763-9960-9EBA5A1F08C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD97AA8F-375E-46AD-8D15-12242C9C14B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD97AA8F-375E-46AD-8D15-12242C9C14B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD97AA8F-375E-46AD-8D15-12242C9C14B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD97AA8F-375E-46AD-8D15-12242C9C14B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
