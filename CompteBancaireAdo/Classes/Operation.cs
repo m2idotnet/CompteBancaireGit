@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CompteBancaireAdo.Classes
 {
@@ -42,26 +43,36 @@ namespace CompteBancaireAdo.Classes
 
         public static List<Operation> GetOperations(int compte)
         {
-            List<Operation> liste = new List<Operation>();
-            SqlCommand command = new SqlCommand("SELECT * FROM Operation  WHERE CompteId = @n", Connection.Instance);
-            command.Parameters.Add(new SqlParameter("@n", compte));
-            Connection.Instance.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            while(reader.Read())
+            
+            Task<List<Operation>> t = Task.Run(new Func<List<Operation>>(() =>
             {
-                Operation o = new Operation()
+                List<Operation> liste = new List<Operation>();
+                SqlCommand command = new SqlCommand("SELECT * FROM Operation  WHERE CompteId = @n", Connection.Instance);
+                command.Parameters.Add(new SqlParameter("@n", compte));
+                lock(new object())
                 {
-                    Id = reader.GetInt32(0),
-                    CompteId = reader.GetInt32(1),
-                    Montant = reader.GetDecimal(2),
-                    DateOperation = reader.GetDateTime(3)
-                };
-                liste.Add(o);
-            }
-            reader.Close();
-            command.Dispose();
-            Connection.Instance.Close();
-            return liste;
+                    Connection.Instance.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Operation o = new Operation()
+                        {
+                            Id = reader.GetInt32(0),
+                            CompteId = reader.GetInt32(1),
+                            Montant = reader.GetDecimal(2),
+                            DateOperation = reader.GetDateTime(3)
+                        };
+                        liste.Add(o);
+                    }
+                    reader.Close();
+                    command.Dispose();
+                    Connection.Instance.Close();
+                    return liste;
+                }
+                
+            }));
+            
+            return t.Result;
         }
         public override string ToString()
         {

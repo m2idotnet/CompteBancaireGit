@@ -1,6 +1,7 @@
 ﻿using CompteBancaireAdo.Classes;
 using System;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CompteBancaireAdo
 {
@@ -61,9 +62,11 @@ namespace CompteBancaireAdo
             Console.Write("Tél du client : ");
             string tel = Console.ReadLine();
             Client c = new Client(nom, prenom, tel);
-            c.Add();
+            Task t = Task.Run(()=>  c.Add());
+            t.Wait();
             Compte compte = new Compte() { ClientId = c.Id };
             compte.Add();
+
             Console.WriteLine("Compte crée");
         }
 
