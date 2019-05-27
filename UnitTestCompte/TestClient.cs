@@ -23,5 +23,12 @@ namespace UnitTestCompte
             Client client = new Client(1002);
             Assert.AreEqual("test", client.Prenom);
         }
+
+        [TestMethod]
+        public void Client_Client_Null()
+        {
+            Client client = new Client(10000);
+            Assert.AreEqual(default(int), client.Id);
+        }
     }
 }

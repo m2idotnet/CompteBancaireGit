@@ -71,25 +71,33 @@ namespace CompteBancaireAdo.Classes
                     //m.ReleaseMutex();
                 }
             });
-            //t.Wait();
+            t.Wait();
         }
 
         public void Update()
         {
-            Task.Run(() =>
+            Task t = Task.Run(() =>
             {
-                SqlCommand command = new SqlCommand("UPDATE Compte set Solde = @s WHERE Id = @i", Connection.Instance);
-                command.Parameters.Add(new SqlParameter("@i", Id));
-                command.Parameters.Add(new SqlParameter("@s", Solde));
-                lock(_lock)
+                if(Id > 0)
                 {
-                    Connection.Instance.Open();
-                    command.ExecuteNonQuery();
-                    command.Dispose();
-                    Connection.Instance.Close();
+                    SqlCommand command = new SqlCommand("UPDATE Compte set Solde = @s WHERE Id = @i", Connection.Instance);
+                    command.Parameters.Add(new SqlParameter("@i", Id));
+                    command.Parameters.Add(new SqlParameter("@s", Solde));
+                    lock (_lock)
+                    {
+                        Connection.Instance.Open();
+                        command.ExecuteNonQuery();
+                        command.Dispose();
+                        Connection.Instance.Close();
+                    }
                 }
+                else
+                {
+                    throw new Exception("Pas d'id");
+                }
+                
             });
-            
+            t.Wait();
         }
     }
 }
