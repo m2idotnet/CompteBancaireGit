@@ -1,4 +1,5 @@
 ﻿using CompteBancaireWpf.Classes;
+using CompteBancaireWpf.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,13 +21,10 @@ namespace CompteBancaireWpf
     /// </summary>
     public partial class ListOperationsWindow : Window
     {
-        private Compte compte { get; set; }
         public ListOperationsWindow(Compte  c)
         {
             InitializeComponent();
-            compte = c;
-            listViewOperation.ItemsSource = Operation.GetOperations(compte.Id);
-            solde.Content = compte.Solde;
+            DataContext = new ListOperationsViewModel(c);
         }
     }
 }

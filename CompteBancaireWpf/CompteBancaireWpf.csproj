@@ -54,6 +54,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\ListeComptesViewModel.cs" />
+    <Compile Include="ViewModels\ListOperationsViewModel.cs" />
+    <Compile Include="ViewModels\NewCompteViewModel.cs" />
+    <Compile Include="ViewModels\OperationViewModel.cs" />
     <Page Include="ListeComptesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -8,14 +8,14 @@
         Title="Nouveau Compte Bancaire" Height="480.4" Width="787.2">
     <Grid>
         <Label Content="Nom : " HorizontalAlignment="Left" Margin="94,43,0,0" VerticalAlignment="Top" Height="64" Width="167" FontSize="36"/>
-        <TextBox x:Name="nom" HorizontalAlignment="Left" Height="64" Margin="228,43,0,0" TextWrapping="Wrap" Text=""  VerticalContentAlignment="Center" VerticalAlignment="Top" Width="512" FontSize="30"/>
+        <TextBox HorizontalAlignment="Left" Height="64" Margin="228,43,0,0" TextWrapping="Wrap" Text="{Binding client.Nom}"  VerticalContentAlignment="Center" VerticalAlignment="Top" Width="512" FontSize="30"/>
 
         <Label Content="Prénom : " HorizontalAlignment="Left" Margin="46,136,0,0" VerticalAlignment="Top" Height="64" Width="167" FontSize="36"/>
-        <TextBox x:Name="prenom" HorizontalAlignment="Left" Height="64" Margin="228,136,0,0" TextWrapping="Wrap" Text=""  VerticalContentAlignment="Center" VerticalAlignment="Top" Width="512" FontSize="30"/>
+        <TextBox  HorizontalAlignment="Left" Height="64" Margin="228,136,0,0" TextWrapping="Wrap" Text="{Binding client.Prenom}" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="512" FontSize="30"/>
         <Label Content="Téléphone : " HorizontalAlignment="Left" Margin="10,228,0,0" VerticalAlignment="Top" Height="64" Width="203" FontSize="36"/>
-        <TextBox x:Name="tel" HorizontalAlignment="Left" Height="64" Margin="228,228,0,0" TextWrapping="Wrap" Text=""  VerticalContentAlignment="Center" VerticalAlignment="Top" Width="512" FontSize="30"/>
+        <TextBox x:Name="tel" HorizontalAlignment="Left" Height="64" Margin="228,228,0,0" TextWrapping="Wrap" Text="{Binding client.Tel}"  VerticalContentAlignment="Center" VerticalAlignment="Top" Width="512" FontSize="30"/>
         <Button Content="Ajouter" x:Name="bAdd" HorizontalAlignment="Left" Margin="228,313,0,0" VerticalAlignment="Top" Width="512" Height="58"/>
-        <Label x:Name="message" Content="" HorizontalAlignment="Left" Margin="228,376,0,0" VerticalAlignment="Top" Height="64" Width="512" FontSize="36"/>
+        <Label  Content="{Binding message}" HorizontalAlignment="Left" Margin="228,376,0,0" VerticalAlignment="Top" Height="64" Width="512" FontSize="36"/>
 
     </Grid>
 </Window>

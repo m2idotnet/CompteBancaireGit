@@ -1,4 +1,5 @@
 ﻿using CompteBancaireWpf.Classes;
+using CompteBancaireWpf.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,31 +31,29 @@ namespace CompteBancaireWpf
         public NewCompteWindow(ListView l)
         {
             InitializeComponent();
+            NewCompteViewModel v = new NewCompteViewModel();
+            DataContext = v;
             listViewComptes = l;
             bAdd.Click += (sender, e) =>
             {
-                Client c = new Client(nom.Text, prenom.Text, tel.Text);
-                c.Add();
-                if(c.Id > 0)
+                v.client.Add();
+                if(v.client.Id > 0)
                 {
-                    Compte compte = new Compte()
+                    v.compte.ClientId = v.client.Id;
+                    v.compte.Add();
+                    if(v.compte.Id > 0)
                     {
-                        ClientId = c.Id
-                    };
-                    compte.Add();
-                    if(compte.Id > 0)
-                    {
-                        message.Content = "le compte a été ajouté voici son numéro " + compte.NumeroCompte;
+                        v.message = "le compte a été ajouté voici son numéro " + v.compte.NumeroCompte;
                         listViewComptes.ItemsSource = Compte.GetComptes();
                     }
                     else
                     {
-                        message.Content = "Erreur d'insertion de compte";
+                        v.message = "Erreur d'insertion de compte";
                     }
                 }
                 else
                 {
-                    message.Content = "Erreur d'insertion du client";
+                    v.message = "Erreur d'insertion du client";
                 }
             };
         }

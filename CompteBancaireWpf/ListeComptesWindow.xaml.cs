@@ -1,4 +1,5 @@
 ﻿using CompteBancaireWpf.Classes;
+using CompteBancaireWpf.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,8 @@ namespace CompteBancaireWpf
         public ListeComptesWindow()
         {
             InitializeComponent();
-            listViewCompte.ItemsSource = Compte.GetComptes();
+            ListeComptesViewModel v = new ListeComptesViewModel();
+            DataContext = v;
             bNewCompte.Click += (sender, e) =>
             {
                 NewCompteWindow w = new NewCompteWindow(listViewCompte);

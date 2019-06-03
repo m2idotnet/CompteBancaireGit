@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CompteBancaireWpf"
         mc:Ignorable="d"
-        Title="Liste opérations compte" Height="455.378" Width="514.94">
+        Title="{Binding compte.NumeroCompte}" Height="455.378" Width="514.94">
     <Grid>
-        <ListView x:Name="listViewOperation" HorizontalAlignment="Left" Height="356" Margin="10,10,0,0" VerticalAlignment="Top" Width="489">
+        <ListView ItemsSource="{Binding listeOperations}" x:Name="listViewOperation" HorizontalAlignment="Left" Height="356" Margin="10,10,0,0" VerticalAlignment="Top" Width="489">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Montant" Width="240" DisplayMemberBinding="{Binding Montant}"/>
@@ -16,7 +16,7 @@
             </ListView.View>
         </ListView>
         <Label Content="Solde : " HorizontalAlignment="Left" Margin="10,371,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="" x:Name="solde" HorizontalAlignment="Left" Margin="85,376,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="{Binding compte.Solde}" x:Name="solde" HorizontalAlignment="Left" Margin="85,376,0,0" VerticalAlignment="Top" FontSize="20"/>
 
     </Grid>
 </Window>

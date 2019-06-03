@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Liste des comptes bancaires" Height="475.914" Width="552.3">
     <Grid>
-        <ListView x:Name="listViewCompte" HorizontalAlignment="Left" Height="342" Margin="10,10,0,0" VerticalAlignment="Top" Width="526">
+        <ListView ItemsSource="{Binding listeComptes}" x:Name="listViewCompte" HorizontalAlignment="Left" Height="342" Margin="10,10,0,0" VerticalAlignment="Top" Width="526">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Numéro" Width="215" DisplayMemberBinding="{Binding NumeroCompte}"/>
