@@ -1,0 +1,16 @@
+﻿<Window x:Class="CompteBancaireWpf.OperationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CompteBancaireWpf"
+        mc:Ignorable="d"
+        Title="OperationWindow" Height="405.179" Width="774.9">
+    <Grid>
+        <Label Content="Montant : " HorizontalAlignment="Left" Margin="27,41,0,0" VerticalAlignment="Top" Height="64" Width="167" FontSize="36"/>
+        <TextBox x:Name="montant" HorizontalAlignment="Left" Height="64" Margin="228,41,0,0" TextWrapping="Wrap" Text=""  VerticalContentAlignment="Center" VerticalAlignment="Top" Width="512" FontSize="30"/>
+        <Button x:Name="bOperation" Content="Effectuer l'opération" HorizontalAlignment="Left" Margin="27,154,0,0" VerticalAlignment="Top" Width="713" Height="73"/>
+        <Label Content="" x:Name="message" HorizontalAlignment="Left" Margin="27,256,0,0" VerticalAlignment="Top" Height="48" Width="713"/>
+
+    </Grid>
+</Window>

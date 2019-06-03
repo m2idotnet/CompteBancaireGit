@@ -1,0 +1,22 @@
+﻿<Window x:Class="CompteBancaireWpf.ListOperationsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CompteBancaireWpf"
+        mc:Ignorable="d"
+        Title="Liste opérations compte" Height="455.378" Width="514.94">
+    <Grid>
+        <ListView x:Name="listViewOperation" HorizontalAlignment="Left" Height="356" Margin="10,10,0,0" VerticalAlignment="Top" Width="489">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Montant" Width="240" DisplayMemberBinding="{Binding Montant}"/>
+                    <GridViewColumn Header="Date d'opération" Width="240" DisplayMemberBinding="{Binding DateOperation}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Solde : " HorizontalAlignment="Left" Margin="10,371,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="" x:Name="solde" HorizontalAlignment="Left" Margin="85,376,0,0" VerticalAlignment="Top" FontSize="20"/>
+
+    </Grid>
+</Window>
