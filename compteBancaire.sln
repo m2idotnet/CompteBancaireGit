@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestCompte", "UnitTestC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompteBancaireWpf", "CompteBancaireWpf\CompteBancaireWpf.csproj", "{91E163B3-5E21-49C7-B401-8F7B1A9B34A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompteBancaireSingleWindowMVVM", "CompteBancaireSingleWindowMVVM\CompteBancaireSingleWindowMVVM.csproj", "{90741054-026A-4102-A2DF-21D107E798F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{91E163B3-5E21-49C7-B401-8F7B1A9B34A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91E163B3-5E21-49C7-B401-8F7B1A9B34A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91E163B3-5E21-49C7-B401-8F7B1A9B34A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90741054-026A-4102-A2DF-21D107E798F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90741054-026A-4102-A2DF-21D107E798F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90741054-026A-4102-A2DF-21D107E798F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90741054-026A-4102-A2DF-21D107E798F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
