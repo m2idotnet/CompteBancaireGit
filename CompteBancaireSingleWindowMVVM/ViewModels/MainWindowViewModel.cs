@@ -27,7 +27,19 @@ namespace CompteBancaireSingleWindowMVVM.ViewModels
         {
             maGrille = g;
             listeComptesCommand = new RelayCommand(ListeComptes);
+            operationCommand = new RelayCommand<string>(Operation);
         }
+
+        public void Operation(string type)
+        {
+            ResetGrid();
+            Button b = new Button
+            {
+                Content = type
+            };
+            maGrille.Children.Add(b);
+        }
+
 
         public void ListeComptes()
         {
@@ -38,7 +50,7 @@ namespace CompteBancaireSingleWindowMVVM.ViewModels
             maGrille.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
             foreach(PropertyInfo pInfo in typeof(Compte).GetProperties())
             {
-                gridView.Columns.Add(new GridViewColumn { Header = pInfo.Name, Width = pInfo.Name.Length * 10, DisplayMemberBinding = new Binding(pInfo.Name) });
+                gridView.Columns.Add(new GridViewColumn { Header = pInfo.Name, Width = pInfo.Name.Length * 20, DisplayMemberBinding = new Binding(pInfo.Name) });
             }
             listView.View = gridView;
             //premiere solution on passe la listView comme parametre au ViewModel et on met à jour le itemsSource à l'interieur du Task en invoquant le thread principal

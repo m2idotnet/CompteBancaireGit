@@ -13,12 +13,12 @@
                 <MenuItem Header="_Ajouter Compte" Command="{Binding addCompteCommand}"></MenuItem>
             </MenuItem>
             <MenuItem Header="_Opéaration">
-                <MenuItem Header="_Depot" Command="{Binding operationCommand}"></MenuItem>
-                <MenuItem Header="_Retrait" Command="{Binding operationCommand}"></MenuItem>
+                <MenuItem Header="_Depot" Command="{Binding operationCommand}" CommandParameter="depot"></MenuItem>
+                <MenuItem Header="_Retrait" Command="{Binding operationCommand}" CommandParameter="retrait"></MenuItem>
                 <MenuItem Header="_Liste opérations" Command="{Binding listeOperationsCommand}"></MenuItem>
             </MenuItem>
         </Menu>
-        <Grid x:Name="maGrille">
+        <Grid x:Name="maGrille" Margin="0,10,0,0">
             
         </Grid>
     </DockPanel>
