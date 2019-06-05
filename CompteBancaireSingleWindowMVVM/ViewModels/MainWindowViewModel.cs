@@ -28,6 +28,7 @@ namespace CompteBancaireSingleWindowMVVM.ViewModels
             maGrille = g;
             listeComptesCommand = new RelayCommand(ListeComptes);
             operationCommand = new RelayCommand<string>(Operation);
+            listeOperationsCommand = new RelayCommand(ListeOperations);
         }
 
         public void Operation(string type)
@@ -38,6 +39,60 @@ namespace CompteBancaireSingleWindowMVVM.ViewModels
                 Content = type
             };
             maGrille.Children.Add(b);
+        }
+
+        public void ListeOperations()
+        {
+            ResetGrid();
+            for(int i = 1; i<=2; i++)
+            {
+                maGrille.RowDefinitions.Add(new RowDefinition
+                {
+                    Height = (i==1)  ? new GridLength(1, GridUnitType.Auto) : new GridLength(1, GridUnitType.Star)
+                });
+                maGrille.ColumnDefinitions.Add(new ColumnDefinition
+                {
+                    Width = (i == 1) ? new GridLength(4, GridUnitType.Star) : new GridLength(1, GridUnitType.Star)
+                });
+            }
+            maGrille.DataContext = new ListeOperationsViewModel();
+            Label lNumero = new Label
+            {
+                Content = "Numero : ",
+                HorizontalAlignment = HorizontalAlignment.Left
+            };
+            maGrille.Children.Add(lNumero);
+            Grid.SetColumn(lNumero, 0);
+            Grid.SetRow(lNumero, 0);
+            TextBox tNumero = new TextBox
+            {
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Width=300
+            };
+            tNumero.SetBinding(TextBox.TextProperty, new Binding("NumeroCompte"));
+            maGrille.Children.Add(tNumero);
+            Grid.SetColumn(tNumero, 0);
+            Grid.SetRow(tNumero, 0);
+            Button bGetOperation = new Button
+            {
+                Content = "chercher operations",
+            };
+            bGetOperation.SetBinding(Button.CommandProperty, new Binding("getOperationsCommand"));
+            maGrille.Children.Add(bGetOperation);
+            Grid.SetColumn(bGetOperation, 1);
+            Grid.SetRow(bGetOperation, 0);
+            ListView listView = new ListView();
+            GridView gridView = new GridView();
+            foreach (PropertyInfo pInfo in typeof(Operation).GetProperties())
+            {
+                gridView.Columns.Add(new GridViewColumn { Header = pInfo.Name, Width = pInfo.Name.Length * 20, DisplayMemberBinding = new Binding(pInfo.Name) });
+            }
+            listView.View = gridView;
+            listView.SetBinding(ListView.ItemsSourceProperty, new Binding("listeOperations"));
+            maGrille.Children.Add(listView);
+            Grid.SetColumn(listView, 0);
+            Grid.SetRow(listView, 1);
+            Grid.SetColumnSpan(listView, 2);
         }
 
 
