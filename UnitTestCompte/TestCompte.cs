@@ -7,6 +7,8 @@ using System.Text;
 
 namespace UnitTestCompte
 {
+    //unité de test unitaire
+    //pour controler le fonctionnement des méthodes au fur et à mesure
     [TestClass]
     public class TestCompte
     {

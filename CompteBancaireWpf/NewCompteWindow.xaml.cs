@@ -28,9 +28,11 @@ namespace CompteBancaireWpf
             InitializeComponent();
         }
 
+        //constructeur qui prend une liste comme argument
         public NewCompteWindow(ListView l)
         {
             InitializeComponent();
+            //création instance datacontext pour appel de newcompteviewmodel
             NewCompteViewModel v = new NewCompteViewModel();
             DataContext = v;
             listViewComptes = l;

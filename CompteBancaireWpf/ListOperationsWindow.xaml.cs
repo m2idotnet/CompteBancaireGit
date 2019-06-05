@@ -23,6 +23,7 @@ namespace CompteBancaireWpf
     {
         public ListOperationsWindow(Compte  c)
         {
+            // création d'une instance de listoperationview
             InitializeComponent();
             DataContext = new ListOperationsViewModel(c);
         }

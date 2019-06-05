@@ -14,7 +14,9 @@ namespace CompteBancaireWpf.ViewModels
 
         public ListOperationsViewModel(Compte c)
         {
+            //création d'une instance de compte 
             compte = c;
+            //appel de la méthode de récupération des opérations par compte
             listeOperations = Operation.GetOperations(compte.Id);
         }
     }
