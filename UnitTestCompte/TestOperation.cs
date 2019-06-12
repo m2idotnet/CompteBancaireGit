@@ -9,6 +9,8 @@ namespace UnitTestCompte
     [TestClass]
     public class TestOperation
     {
+        //unité de test unitaire
+        //pour controler le fonctionnement des méthodes au fur et à mesure
         [TestMethod]
         public void Add_Operation()
         {

@@ -42,6 +42,8 @@ namespace CompteBancaireWpf.Classes
             Connection.Instance.Close();
         }
 
+        //méthode statique appelable sans création d'instance
+        //renvoie la liste des opérations
         public static List<Operation> GetOperations(int compte)
         {
 
@@ -50,6 +52,7 @@ namespace CompteBancaireWpf.Classes
                 List<Operation> liste = new List<Operation>();
                 SqlCommand command = new SqlCommand("SELECT * FROM Operation  WHERE CompteId = @n", Connection.Instance);
                 command.Parameters.Add(new SqlParameter("@n", compte));
+                //bloque l'ouverture d'une connexion tq parcour de la table
                 lock (new object())
                 {
                     Connection.Instance.Open();

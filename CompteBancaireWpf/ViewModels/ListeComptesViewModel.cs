@@ -10,6 +10,7 @@ namespace CompteBancaireWpf.ViewModels
 {
     public class ListeComptesViewModel
     {
+        //observablecollection : permet de mettre a jour l'affichage des données
         public ObservableCollection<Compte> listeComptes { get; set; }
 
         public ListeComptesViewModel()
