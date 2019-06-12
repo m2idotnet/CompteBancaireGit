@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Gestion  de compte Bancaire</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header class="container-fluid">
+        <nav class="container">
+            <ul class="row">
+                <li class="col">
+                    <a asp-controller="Client" asp-action="Index">Liste des clients</a>
+                </li>
+                <li class="col">
+                    <a asp-controller="Compte" asp-action="Index">Liste des comptes</a>
+                </li>
+                <li class="col">
+                    <a asp-controller="Compte" asp-action="Create">Créer un compte</a>
+                </li>
+                <li class="col">
+                    <a asp-controller="Compte" asp-action="Deposite">Déposer de l'argent</a>
+                </li>
+                <li class="col">
+                    <a asp-controller="Compte" asp-action="WithDrawal">Retirer de l'argent</a>
+                </li>
+                <li class="col">
+                    <a asp-controller="Compte" asp-action="GetOperations">Liste des opérations</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="container-fluid">
+        @RenderBody()
+    </section>
+    <footer class="container-fluid">
+
+    </footer>
+</body>
+</html>
